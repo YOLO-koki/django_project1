@@ -1,0 +1,28 @@
+{% extends '../layouts/base.html' %}
+
+{% block contents %}
+
+<form action="" method="get">
+    <input type="search" name="query" value="{{ request.GET.query }}">
+    <button type="submit">
+        <font>検索</font>
+    </button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nikki Title</th>
+        </tr>
+    </thead>
+    {% for content in object_list %}
+    <tbody>
+        <tr>
+            <td>{{ content.title }}</td>
+            <td><a href="{% url 'detail' content.pk %}">detail</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock contents %}
