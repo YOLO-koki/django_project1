@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import Nikki
 from .forms import NikkiForm
 from django.db.models import Q
@@ -18,7 +19,20 @@ class NikkiList(ListView):
             object_list = Nikki.objects.all()
         return object_list
     
+# 作成
+class NikkiCreate(CreateView):
+    model = Nikki
+    form_class = NikkiForm
+    template_name: str = 'create.html'
+    success_url = reverse_lazy('app1:contents')
 
+# 詳細
 class NikkiDetail(DetailView):
     model = Nikki
     context_object_name = 'content'
+    
+# 削除
+class NikkiDelete(DeleteView):
+    model = Nikki
+    context_object_name = 'content'
+    success_url = reverse_lazy('app1:contents')

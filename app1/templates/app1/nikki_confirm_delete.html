@@ -1,0 +1,11 @@
+{% extends '../layouts/base.html' %}
+
+{% block contents %}
+<h1>Nikkiの削除</h1>
+<p>「{{ content.title }}」のデータを削除しますか</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <a href="{% url 'app1:contents' %}" role="button">戻る</a>
+    <input type="submit" value="削除">
+</form>
+{% endblock contents %}

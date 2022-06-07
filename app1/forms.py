@@ -1,5 +1,3 @@
-from dataclasses import fields
-from statistics import mode
 from django import forms
 from .models import Nikki
 
@@ -8,3 +6,6 @@ class NikkiForm(forms.ModelForm):
     class Meta:
         model = Nikki
         fields = ('title', 'detail', 'date')
+        widgets = {
+            'detail': forms.Textarea(attrs={'rows':50, 'cols':150}),
+        }

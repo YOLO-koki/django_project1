@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %}
+
+{% block contents %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">
+        <font>作成</font>
+    </button>
+</form>
+{% endblock contents %}

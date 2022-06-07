@@ -19,7 +19,8 @@
     <tbody>
         <tr>
             <td>{{ content.title }}</td>
-            <td><a href="{% url 'detail' content.pk %}">detail</a></td>
+            <td><a href="{% url 'app1:detail' content.pk %}">detail</a></td>
+            <td><a href="{% url 'app1:delete' content.pk %}">delete</a></td>
         </tr>
     </tbody>
     {% endfor %}
